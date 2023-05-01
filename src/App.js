@@ -8,17 +8,26 @@ function App() {
   return (
     <div className="App">
       <div className="black-nav">
-        <h4>블로그임</h4>
-        <button
-          onClick={() => {
-            const titleCopy = [...title];
-            titleCopy[0] = '여자 코트 추천';
-            setTitle(titleCopy);
-          }}
-        >
-          asf
-        </button>
+        <h4>ReactBlo</h4>
       </div>
+      <button
+        onClick={() => {
+          const titleCopy = [...title];
+          titleCopy.sort((a, b) => (a > b ? 1 : -1));
+          setTitle(titleCopy);
+        }}
+      >
+        가나다순정렬
+      </button>
+      <button
+        onClick={() => {
+          const titleCopy = [...title];
+          titleCopy[0] = '여자 코트 추천';
+          setTitle(titleCopy);
+        }}
+      >
+        글수정
+      </button>
       <div className="list">
         <h4>
           {title[0]}{' '}
