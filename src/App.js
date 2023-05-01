@@ -10,24 +10,6 @@ function App() {
       <div className="black-nav">
         <h4>ReactBlo</h4>
       </div>
-      <button
-        onClick={() => {
-          const titleCopy = [...title];
-          titleCopy.sort((a, b) => (a > b ? 1 : -1));
-          setTitle(titleCopy);
-        }}
-      >
-        가나다순정렬
-      </button>
-      <button
-        onClick={() => {
-          const titleCopy = [...title];
-          titleCopy[0] = '여자 코트 추천';
-          setTitle(titleCopy);
-        }}
-      >
-        글수정
-      </button>
       <div className="list">
         <h4>
           {title[0]}{' '}
@@ -50,8 +32,20 @@ function App() {
         <h4>{title[2]}</h4>
         <p>2월 17일 발행</p>
       </div>
+
+      <Modal></Modal>
     </div>
   );
 }
+
+const Modal = () => {
+  return (
+    <div className="modal">
+      <h4>제목</h4>
+      <p>날짜</p>
+      <p>상세내용</p>
+    </div>
+  );
+};
 
 export default App;
