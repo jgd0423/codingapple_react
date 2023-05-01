@@ -3,6 +3,7 @@ import { useState } from 'react';
 
 function App() {
   let [titles, setTitles] = useState(['남자 코트 추천', '강남 우동맛집', '파이썬독학']);
+  let [title, setTitle] = useState(titles[0]);
   let [thumbsUps, setThumbsUps] = useState([0, 0, 0]);
   let [isModalShow, setIsModalShow] = useState(false);
 
@@ -16,6 +17,7 @@ function App() {
           <div className="list" key={idx}>
             <h4
               onClick={() => {
+                setTitle(title);
                 setIsModalShow(!isModalShow);
               }}
             >
@@ -37,7 +39,7 @@ function App() {
           </div>
         );
       })}
-      {isModalShow ? <Modal titles={titles} setTitles={setTitles} /> : null}
+      {isModalShow ? <Modal title={title} /> : null}
     </div>
   );
 }
@@ -45,18 +47,9 @@ function App() {
 const Modal = (props) => {
   return (
     <div className="modal">
-      <h4>{props.titles[0]}</h4>
+      <h4>{props.title}</h4>
       <p>날짜</p>
       <p>상세내용</p>
-      <button
-        onClick={() => {
-          const titlesCopy = [...props.titles];
-          titlesCopy[0] = '여자코트 추천';
-          props.setTitles(titlesCopy);
-        }}
-      >
-        글수정
-      </button>
     </div>
   );
 };
